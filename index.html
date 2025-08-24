@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlackBoxSourcing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/lausanne" rel="stylesheet">
+  <link rel="icon" type="image/jpg" href="./images/TabLogo.jpg" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+
+<body>
+  <div id="loader">
+  Loading...
+</div>
+
+
+
+<div id="main-content" style="opacity: 0; transition: opacity 2s ease;">
+
+    <div class="scroll-image">
+      <div class="final-box" style="top: 170px;">
+        <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
+        <h1 class="image-heading">BIRDIE®</h1>
+        <p class="image-para">A Fresh Air Monitor</p>
+        <hr>
+
+        <video class="hover-video" muted>
+          <source src="./images//vi1.mp4" type="video/mp4" class="scroll-video" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="final-box">
+        <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
+        <h1 class="image-heading">BIRDIE®</h1>
+        <p class="image-para">A Fresh Air Monitor</p>
+        <hr>
+        <video class="hover-video" muted>
+          <source src="./videos/sample.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="final-box">
+        <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
+        <h1 class="image-heading">BIRDIE®</h1>
+        <p class="image-para">A Fresh Air Monitor</p>
+        <hr>
+        <video class="hover-video" muted>
+          <source src="./videos/sample.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="work.html" class="nav-link">Work®</a>
+        <a href="service.html">Studio</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <span class="nav-right" id="cph-time">CPH --:--</span>
+    </nav>
+  </header>
+
+  <main>
+    <div class="title-section">
+      <h1>BLACKBOXSOURCING</h1>
+      <p class="definition">
+        <span class="italic">/ˈBEɪSBɔːN/</span> <span class="italic">ADJECTIVE</span><br />
+        <span class="small">OF HUMBLE BIRTH OR ORIGIN</span>
+      </p>
+    </div>
+
+    <div class="description">
+      <p>
+        An Independent Branding & Digital Design Studio<br />
+        based in Copenhagen. We combine Identity, Digital<br />
+        Design & Development – Specializing in Webflow.
+      </p>
+    </div>
+  </main>
+
+
+</div>
+
+
+
+  <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+
+  
+  <!-- ................................................................................................................ -->
+  
+  <!-- JavaScript for CPH Time -->
+  <script>
+    function updateCPHTime() {
+      const options = {
+        timeZone: 'Europe/Copenhagen',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      };
+
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat([], options);
+      const timeString = formatter.format(now);
+
+      document.getElementById('cph-time').textContent = `CPH ${timeString}`;
+    }
+
+    updateCPHTime(); // Initial load
+    setInterval(updateCPHTime, 60000); // Update every minute
+
+    document.querySelectorAll('.final-box').forEach(box => {
+      const video = box.querySelector('.hover-video');
+
+      box.addEventListener('mouseenter', () => {
+        video.style.visibility = 'visible';
+        video.style.opacity = '1';
+        video.play();
+      });
+
+      box.addEventListener('mouseleave', () => {
+        video.style.opacity = '0';
+        video.style.visibility = 'hidden';
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+
+    // .......................................................................................................
+  setTimeout(() => {
+    const mainContent = document.getElementById("main-content");
+    const loader = document.getElementById("loader");
+
+    // Slide loader out
+    loader.style.animation = "slideOut 0.5s ease-in forwards";
+
+    // After slide-out animation ends, remove loader and fade in content
+    loader.addEventListener("animationend", () => {
+      loader.remove();
+      mainContent.style.opacity = "1";
+    });
+  }, 3000);
+    </script>
+</body>
+
+</html>

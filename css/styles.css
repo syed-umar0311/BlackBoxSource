@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0d0d0d;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  font-weight: bold;
+  padding: 18px 6PX 22PX 12PX;
+  z-index: 1000;
+}
+
+.navbar a {
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: -8px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+
+}
+
+.nav-right {
+  display: flex;
+  justify-self: right;
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 18px;
+
+
+}
+
+.title-section {
+  padding: 0px;
+  margin-top: -60px;
+}
+/* .content-reveal{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+.title-section h1 {
+  font-weight: 900;
+  letter-spacing: -2px;
+  font-size: 114px;
+  padding: 20PX 0PX 0PX 5PX;
+
+}
+
+.definition {
+  margin-top: -12px;
+  color: #bbb;
+  padding-left: 12px;
+  font-size: 12px;
+}
+
+.definition .italic {
+  font-style: italic;
+}
+
+.definition .small {
+  font-size: 0.7rem;
+  color: #999;
+}
+
+/* ............................................................................................................. */
+
+.description {
+  padding: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f2f2f2;
+  position: absolute;
+  bottom: 0px;
+  font-family: 'poppins';
+  font-size: 20px;
+  /* margin-top: 350px; */
+
+
+}
+
+/* .................................. */
+
+
+
+.scroll-image {
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  scroll-behavior: smooth;
+
+
+  overflow-y: scroll;
+  /* scroll applied here */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+
+}
+
+.scroll-image::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+.final-box {
+  position: relative;
+  width: 100%;
+  height: 118%;
+  top: 140px;
+  background-color: #0d0d0d;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.hover-video {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 57%;
+  object-fit: cover;
+  object-position: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.final-box:hover .hover-video {
+  display: block;
+
+}
+
+
+.fix-image {
+  width: 100%;
+  height: 85%;
+  object-fit: fill;
+  background-size: contain;
+
+}
+
+.image-heading {
+  font-family: 'Poppins';
+  font-size: 35px;
+  margin-top: -5px;
+  padding: 0px;
+}
+
+.image-para {
+  color: #bbb;
+  font-size: 15px;
+  margin-top: -10px;
+  font-family: 'Poppins';
+}
+
+.scroll-video {
+  object-fit: cover;
+  background-size: cover;
+}
+
+/* ........................................................ */
+
+/* Loader base styles */
+#loader {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  animation: slideIn 1s ease-out forwards;
+}
+
+/* Slide in from bottom */
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Slide out to top */
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
