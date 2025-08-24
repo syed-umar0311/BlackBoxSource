@@ -11,63 +11,96 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="./css/contact.css" />
     <link rel="icon" type="image/jpg" href="./images/TabLogo.jpg" />
+    <link rel="stylesheet" href="./css/styles.css" />
+
 </head>
 
 <body>
+    <div class="circle"></div>
+
 
     <div id="loader">
-  Loading...
-</div>
-<div id="main-content" style="opacity: 0; transition: opacity 1s ease;">
-
-    <header>
-        <nav class="navbar-con">
-            <h1 class="con-nav-head">BLACKBOXSOURCING</h1>
-            <div class="nav-left-con">
-                <a href="work.html">Work®</a>
-                <a href="service.html">Studio</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <span class="nav-right-con" id="cph-time">CPH --:--</span>
-        </nav>
-    </header>
-    <!-- ....................................................................................................................... -->
-
-    <div class="marquee-container">
-        <div class="marquee-track">
-            <div class="marquee-text">SAY SALUT | SAY HELLO | SAY HALO | SAY SALUT | SAY HELLO | SAY HALO </div>
-            <div class="marquee-text">SAY SALUT | SAY HELLO | SAY HALO | SAY SALUT | SAY HELLO | SAY HALO </div>
-        </div>
+        Loading...
     </div>
+    <div id="main-content" style="opacity: 0; transition: opacity 1s ease;">
 
+        <header>
+            <nav class="navbar-con">
+                <h1 class="con-nav-head"><a href="index.html">BLACKBOXSOURCING</a></h1>
+                <div class="nav-left-con">
+                    <a href="work.html">Work®</a>
+                    <a href="service.html">Studio</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <span class="nav-right-con" id="cph-time">CPH --:--</span>
+            </nav>
+        </header>
+        <!-- ....................................................................................................................... -->
 
-    <div class="con-foot">
-        <div class="con-foot-in">
-            <p class="con-in-p">We're always looking for amazing clients to work with – drop us a mail and you will hear from us as soon as possible.</p>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <div class="marquee-text">SAY SALUT | SAY HELLO | SAY HALO | SAY SALUT | SAY HELLO | SAY HALO </div>
+                <div class="marquee-text">SAY SALUT | SAY HELLO | SAY HALO | SAY SALUT | SAY HELLO | SAY HALO </div>
+            </div>
         </div>
 
 
-        <div class="con-foot-inn">
-            <div class="con-inner">
-                <h5 class="con-inner-h1">BUSINESS INQUIRIES</h5>
-                <p class="con-inner-p">ABCD@gmail.com</p>
+        <div class="con-foot">
+            <div class="con-foot-in">
+                <p class="con-in-p">We're always looking for amazing clients to work with – drop us a mail and you will
+                    hear from us as soon as possible.</p>
             </div>
-            <div class="con-inner">
-                <h5 class="con-inner-h1">GENERAL</h5>
-                <p class="con-inner-p">hello@gmail.com</p>
-            </div>
-            <div class="con-inner">
-                <h5 class="con-inner-h1">CALL US</h5>
-                <p class="con-inner-p">(+45) 1234567</p>
+
+
+            <div class="con-foot-inn">
+                <div class="con-inner">
+                    <h5 class="con-inner-h1">BUSINESS INQUIRIES</h5>
+                    <p class="con-inner-p">ABCD@gmail.com</p>
+                </div>
+                <div class="con-inner">
+                    <h5 class="con-inner-h1">GENERAL</h5>
+                    <p class="con-inner-p">hello@gmail.com</p>
+                </div>
+                <div class="con-inner">
+                    <h5 class="con-inner-h1">CALL US</h5>
+                    <p class="con-inner-p">(+45) 1234567</p>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- 
   🔥 SAY SALUT | SAY HELLO | SAY HALO | SAY SALUT | SAY HELLO | SAY HALO 🔥 -->
     <!-- ............................................................................................................................. -->
     <script>
+        const circle = document.querySelector('.circle');
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let circleX = 0;
+        let circleY = 0;
+
+        const speed = 0.1;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            circleX += (mouseX - circleX) * speed;
+            circleY += (mouseY - circleY) * speed;
+
+            circle.style.left = `${circleX}px`;
+            circle.style.top = `${circleY}px`;
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+        // .........................................................................................................
+
         function updateCPHTime() {
             const options = {
                 timeZone: "Europe/Copenhagen",
@@ -89,19 +122,19 @@
 
 
         // .....................................................................................................
- setTimeout(() => {
-    const mainContent = document.getElementById("main-content");
-    const loader = document.getElementById("loader");
+        setTimeout(() => {
+            const mainContent = document.getElementById("main-content");
+            const loader = document.getElementById("loader");
 
-    // Slide loader out
-    loader.style.animation = "slideOut 0.5s ease-in forwards";
+            // Slide loader out
+            loader.style.animation = "slideOut 0.5s ease-in forwards";
 
-    // After slide-out animation ends, remove loader and fade in content
-    loader.addEventListener("animationend", () => {
-      loader.remove();
-      mainContent.style.opacity = "1";
-    });
-  }, 3000);
+            // After slide-out animation ends, remove loader and fade in content
+            loader.addEventListener("animationend", () => {
+                loader.remove();
+                mainContent.style.opacity = "1";
+            });
+        }, 3000);
     </script>
 </body>
 

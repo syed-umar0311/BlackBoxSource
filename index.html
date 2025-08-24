@@ -16,16 +16,17 @@
 
 
 <body>
+  <div class="circle"></div>
   <div id="loader">
-  Loading...
-</div>
+    Loading...
+  </div>
 
 
 
-<div id="main-content" style="opacity: 0; transition: opacity 2s ease;">
+  <div id="main-content" style="opacity: 0; transition: opacity 2s ease;">
 
     <div class="scroll-image">
-      <div class="final-box" style="top: 170px;">
+      <div class="final-box" style="top:170px;">
         <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
         <h1 class="image-heading">BIRDIE®</h1>
         <p class="image-para">A Fresh Air Monitor</p>
@@ -37,7 +38,7 @@
         </video>
       </div>
 
-      <div class="final-box">
+      <div class="final-box" >
         <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
         <h1 class="image-heading">BIRDIE®</h1>
         <p class="image-para">A Fresh Air Monitor</p>
@@ -47,60 +48,91 @@
           Your browser does not support the video tag.
         </video>
       </div>
-      <div class="final-box">
-        <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
-        <h1 class="image-heading">BIRDIE®</h1>
-        <p class="image-para">A Fresh Air Monitor</p>
-        <hr>
-        <video class="hover-video" muted>
-          <source src="./videos/sample.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <div class="index-foot" >
+        <div class="in-index-foot">
+          <h4 class="index-foot-h4">BUSINESS INQUIRIES</h4>
+          <p class="index-foot-p">newbize@baseborn.studi0</p>
+        </div>
+        <div class="in-index-foot">
+          <h4 class="index-foot-h4">GEBERAL</h4>
+          <p class="index-foot-p">hello@baseborn.studio</p>
+        </div>
+        <div class="in-index-foot">
+          <h4 class="index-foot-h4">CALL US</h4>
+          <p class="index-foot-p">+92 33333333</p>
+        </div>
       </div>
     </div>
-  
-  <header>
-    <nav class="navbar">
-      <div class="nav-left">
-        <a href="work.html" class="nav-link">Work®</a>
-        <a href="service.html">Studio</a>
-        <a href="contact.html">Contact</a>
+
+    <header>
+      <nav class="navbar">
+        <div class="nav-left">
+          <a href="work.html" class="nav-link">Work®</a>
+          <a href="service.html">Studio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <span class="nav-right" id="cph-time">CPH --:--</span>
+      </nav>
+    </header>
+
+    <main>
+      <div class="title-section">
+        <h1>BLACKBOXSOURCING</h1>
+        <p class="definition">
+          <span class="italic">/ˈBEɪSBɔːN/</span> <span class="italic">ADJECTIVE</span><br />
+          <span class="small">OF HUMBLE BIRTH OR ORIGIN</span>
+        </p>
       </div>
-      <span class="nav-right" id="cph-time">CPH --:--</span>
-    </nav>
-  </header>
 
-  <main>
-    <div class="title-section">
-      <h1>BLACKBOXSOURCING</h1>
-      <p class="definition">
-        <span class="italic">/ˈBEɪSBɔːN/</span> <span class="italic">ADJECTIVE</span><br />
-        <span class="small">OF HUMBLE BIRTH OR ORIGIN</span>
-      </p>
-    </div>
-
-    <div class="description">
-      <p>
-        An Independent Branding & Digital Design Studio<br />
-        based in Copenhagen. We combine Identity, Digital<br />
-        Design & Development – Specializing in Webflow.
-      </p>
-    </div>
-  </main>
+      <div class="description">
+        <p>
+          An Independent Branding & Digital Design Studio<br />
+          based in Copenhagen. We combine Identity, Digital<br />
+          Design & Development – Specializing in Webflow.
+        </p>
+      </div>
+    </main>
 
 
-</div>
+  </div>
 
 
 
   <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
 
-  
+
   <!-- ................................................................................................................ -->
-  
+
   <!-- JavaScript for CPH Time -->
   <script>
+     const circle = document.querySelector('.circle');
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let circleX = 0;
+    let circleY = 0;
+
+    const speed = 0.1;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+
+      circle.style.left = `${circleX}px`;
+      circle.style.top = `${circleY}px`;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+    // .........................................................................................................
     function updateCPHTime() {
       const options = {
         timeZone: 'Europe/Copenhagen',
@@ -137,20 +169,40 @@
     });
 
     // .......................................................................................................
-  setTimeout(() => {
-    const mainContent = document.getElementById("main-content");
-    const loader = document.getElementById("loader");
+    setTimeout(() => {
+      const mainContent = document.getElementById("main-content");
+      const loader = document.getElementById("loader");
 
-    // Slide loader out
-    loader.style.animation = "slideOut 0.5s ease-in forwards";
+      // Slide loader out
+      loader.style.animation = "slideOut 0.5s ease-in forwards";
 
-    // After slide-out animation ends, remove loader and fade in content
-    loader.addEventListener("animationend", () => {
-      loader.remove();
-      mainContent.style.opacity = "1";
-    });
-  }, 3000);
-    </script>
+      // After slide-out animation ends, remove loader and fade in content
+      loader.addEventListener("animationend", () => {
+        loader.remove();
+        mainContent.style.opacity = "1";
+      });
+    }, 3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </script>
 </body>
 
 </html>
