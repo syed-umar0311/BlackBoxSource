@@ -18,6 +18,7 @@
 <body>
   <div class="circle"></div>
   <div id="loader">
+    <img src="./images/Logo.jpg" alt="" srcset="" style="width: 200px; height: 200px;">
     <div class="loaderr"></div>
   </div>
 
@@ -135,26 +136,26 @@
     animate();
     // .........................................................................................................
     function updateCPHTime() {
-  const options = {
-    timeZone: 'Europe/Copenhagen',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false
-  };
+      const options = {
+        timeZone: 'Europe/Copenhagen',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      };
 
-  const now = new Date();
-  const formatter = new Intl.DateTimeFormat([], options);
-  const timeString = formatter.format(now); // example: "15:42"
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat([], options);
+      const timeString = formatter.format(now); // example: "15:42"
 
-  const [hours, minutes] = timeString.split(":");
+      const [hours, minutes] = timeString.split(":");
 
-  // put blinking colon between hours and minutes
-  document.getElementById('cph-time').innerHTML = `CPH ${hours}<span class="blink">:</span>${minutes}`;
-}
+      // put blinking colon between hours and minutes
+      document.getElementById('cph-time').innerHTML = `CPH ${hours}<span class="blink">:</span>${minutes}`;
+    }
 
-updateCPHTime(); // Initial load
-setInterval(updateCPHTime, 60000); // Update every minute
-// ..........................................................................................................
+    updateCPHTime(); // Initial load
+    setInterval(updateCPHTime, 60000); // Update every minute
+    // ..........................................................................................................
     document.querySelectorAll('.final-box').forEach(box => {
       const video = box.querySelector('.hover-video');
 
@@ -183,19 +184,30 @@ setInterval(updateCPHTime, 60000); // Update every minute
     });
 
     // Navigation animation
+    // Navigation animation with 3s hold AFTER the overlay fully covers
     document.querySelectorAll(".page-transition").forEach(link => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
-        const targetUrl = this.getAttribute("href");
+        const targetUrl = this.href;
 
+        // show overlay
         loader.style.display = "flex";
-        loader.style.animation = "slideIn 1s ease-out forwards";
+        loader.style.opacity = "1";
 
+        // restart slide-in animation cleanly
+        loader.style.animation = "none";
+        void loader.offsetWidth; // reflow
+        loader.style.animation = "slideIn 0.6s ease-out forwards";
+
+        // when overlay has fully covered, WAIT 3s, then go
         loader.addEventListener("animationend", () => {
-          window.location.href = targetUrl;
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 3000); // <- your 3-second delay
         }, { once: true });
       });
     });
+
 
 
 

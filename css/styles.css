@@ -194,6 +194,7 @@ body {
 
 /* Loader base styles */
 #loader {
+  flex-direction: column;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -228,27 +229,33 @@ body {
   }
 }
 .loaderr {
-  width: fit-content;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 30px;
-  background:linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;
-  animation: l21 1s infinite linear;
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+}
+.loaderr::before,
+.loaderr::after {    
+  content:"";
+  grid-area: 1/1;
+  --c:no-repeat radial-gradient(farthest-side,#d4af37 92%,#0000); /* gold */
+  background: 
+    var(--c) 50%  0, 
+    var(--c) 50%  100%, 
+    var(--c) 100% 50%, 
+    var(--c) 0    50%;
+  background-size: 12px 12px;
+  animation: l12 1s infinite;
 }
 .loaderr::before {
-  content :"Loading...";
-  color: #0000;
-  padding: 0 5px;
-  background: inherit;
-  background-image: linear-gradient(90deg,#fff 50%,#000 0);
-  -webkit-background-clip:text;
-          background-clip:text;
+  margin: 4px;
+  filter: hue-rotate(45deg) brightness(1.1);
+  background-size: 8px 8px;
+  animation-timing-function: linear
 }
 
-@keyframes l21{
-  100%{background-position: left}
-}
-/* Slide animations */
+@keyframes l12 { 
+  100%{transform: rotate(.5turn)}
+}/* Slide animations */
 
 /* ................................................................................................ */
 .index-foot {

@@ -19,7 +19,8 @@
     <div class="circle"></div>
 
     <div id="loader">
-        Loading...
+        <img src="./images/Logo.jpg" alt="" srcset="" style="width: 200px; height: 200px;">
+        <div class="loaderr"></div>
     </div>
 
 
@@ -31,7 +32,7 @@
                     <h1 class="service-nav-head"><a href="index.html" class="page-transition">BLACKBOXSOURCING</a></h1>
                     <div class="nav-left-service">
                         <a href="work.html" class="nav-link page-transition">Work®</a>
-                        <a href="service.html" class="page-transition">Our Story</a>
+                        <a href="#" style="pointer-events: none; color: gray; text-decoration: none;">Our Story</a>
                         <a href="contact.html" class="page-transition">Contact</a>
                     </div>
                     <span class="nav-right" id="cph-time">CPH --<span class="blink">:</span>--</span>
@@ -280,16 +281,26 @@
         document.querySelectorAll(".page-transition").forEach(link => {
             link.addEventListener("click", function (e) {
                 e.preventDefault();
-                const targetUrl = this.getAttribute("href");
+                const targetUrl = this.href;
 
+                // show overlay
                 loader.style.display = "flex";
-                loader.style.animation = "slideIn 0.8s ease-out forwards";
+                loader.style.opacity = "1";
 
+                // restart slide-in animation cleanly
+                loader.style.animation = "none";
+                void loader.offsetWidth; // reflow
+                loader.style.animation = "slideIn 0.6s ease-out forwards";
+
+                // when overlay has fully covered, WAIT 3s, then go
                 loader.addEventListener("animationend", () => {
-                    window.location.href = targetUrl;
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 3000); // <- your 3-second delay
                 }, { once: true });
             });
         });
+
 
     </script>
 </body>
