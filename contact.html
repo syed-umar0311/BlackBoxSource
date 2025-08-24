@@ -26,13 +26,13 @@
 
         <header>
             <nav class="navbar-con">
-                <h1 class="con-nav-head"><a href="index.html">BLACKBOXSOURCING</a></h1>
+                <h1 class="con-nav-head"><a href="index.html" class="page-transition">BLACKBOXSOURCING</a></h1>
                 <div class="nav-left-con">
-                    <a href="work.html">Work®</a>
-                    <a href="service.html">Studio</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="work.html" class="page-transition">Work®</a>
+                    <a href="service.html" class="page-transition">Our Story</a>
+                    <a href="contact.html" class="page-transition">Contact</a>
                 </div>
-                <span class="nav-right-con" id="cph-time">CPH --:--</span>
+                <span class="nav-right" id="cph-time">CPH --<span class="blink">:</span>--</span>
             </nav>
         </header>
         <!-- ....................................................................................................................... -->
@@ -103,16 +103,20 @@
 
         function updateCPHTime() {
             const options = {
-                timeZone: "Europe/Copenhagen",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
+                timeZone: 'Europe/Copenhagen',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
             };
 
             const now = new Date();
             const formatter = new Intl.DateTimeFormat([], options);
-            const timeString = formatter.format(now);
-            document.getElementById("cph-time").textContent = `CPH ${timeString}`;
+            const timeString = formatter.format(now); // example: "15:42"
+
+            const [hours, minutes] = timeString.split(":");
+
+            // put blinking colon between hours and minutes
+            document.getElementById('cph-time').innerHTML = `CPH ${hours}<span class="blink">:</span>${minutes}`;
         }
 
         updateCPHTime(); // Initial load
@@ -122,19 +126,32 @@
 
 
         // .....................................................................................................
-        setTimeout(() => {
-            const mainContent = document.getElementById("main-content");
-            const loader = document.getElementById("loader");
 
-            // Slide loader out
-            loader.style.animation = "slideOut 0.5s ease-in forwards";
+        const loader = document.getElementById("loader");
+        const mainContent = document.getElementById("main-content");
 
-            // After slide-out animation ends, remove loader and fade in content
-            loader.addEventListener("animationend", () => {
-                loader.remove();
-                mainContent.style.opacity = "1";
+        // Show content immediately on load (no loader effect)
+        window.addEventListener("load", () => {
+            loader.style.display = "none";
+            mainContent.style.opacity = "1";
+        });
+
+        // Navigation animation
+        document.querySelectorAll(".page-transition").forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                const targetUrl = this.getAttribute("href");
+
+                loader.style.display = "flex";
+                loader.style.animation = "slideIn 0.8s ease-out forwards";
+
+                loader.addEventListener("animationend", () => {
+                    window.location.href = targetUrl;
+                }, { once: true });
             });
-        }, 3000);
+        });
+
+
     </script>
 </body>
 

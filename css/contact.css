@@ -143,40 +143,55 @@ body {
     font-family: 'poppins';
     font-size: 18px;
 }
+
 /* Loader base styles */
 #loader {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
-  animation: slideIn 1s ease-out forwards;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    animation: slideIn 1s ease-out forwards;
 }
 
 /* Slide in from bottom */
 @keyframes slideIn {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Slide out to top */
 @keyframes slideOut {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* ..................................................................... */
+/* Blinking effect for colon */
+.blink {
+    animation: blink 1s steps(1, start) infinite;
+}
+
+@keyframes blink {
+    50% {
+        visibility: hidden;
+    }
 }

@@ -1,43 +1,44 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #0d0d0d;
-    color: white;
-          overflow: hidden; /* Prevent vertical scroll */
+  font-family: 'Arial', sans-serif;
+  background-color: #0d0d0d;
+  color: white;
+  overflow: hidden;
+  /* Prevent vertical scroll */
 
 }
 
 .navbar-work {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-self: center;
-    font-weight: bold;
-    padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  font-weight: bold;
+  padding-top: 8px;
 }
 
 .navbar-work a {
-    margin-right: 20px;
-    color: white;
-    text-decoration: none;
-    font-family: 'poppins';
-    font-weight: 500;
-    font-size: 18px;
-    margin-top: -8px;
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: -8px;
 }
 
 .nav-left-work {
-    display: flex;
-    align-items: center;
-    margin-right: 100px;
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
 
 }
 
 .nav-right-work {
-    display: flex;
-    justify-self: right;
-    font-family: 'poppins';
-    font-weight: 500;
-    font-size: 18px;
+  display: flex;
+  justify-self: right;
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 18px;
 
 
 }
@@ -45,11 +46,11 @@ body {
 
 
 .work-nav-head {
-    margin-top: 0px;
-    padding-top: 0px;
-    margin-bottom: 0px;
-    font-size: 18px;
-    margin-right: 0px;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  margin-right: 0px;
 }
 
 /* .................................. */
@@ -58,24 +59,28 @@ body {
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
   position: absolute;
-gap:5px;
+  gap: 5px;
   height: 85vh;
   width: 100%;
   background-color: transparent;
   margin-top: 8px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
 }
 
 .work-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 .work-content {
   padding-right: 15px;
-  border-right:1px solid grey; ;
+  border-right: 1px solid grey;
+  ;
   min-width: 40%;
   height: 100%;
   display: flex;
@@ -83,7 +88,8 @@ gap:5px;
   justify-content: flex-start;
   object-fit: contain;
   background-size: contain;
-  margin-right: 10px; /* Optional spacing between items */
+  margin-right: 10px;
+  /* Optional spacing between items */
 }
 
 .work-image {
@@ -107,24 +113,25 @@ gap:5px;
 
 
 /* ................................................................................................... */
-.work-foot{
+.work-foot {
   position: absolute;
   bottom: 0px;
-display: flex;
-height: 4%;
-width: 100%;
-justify-content: space-between;
-align-items: center;
-padding: 4px;
-padding-left: 0px;
-border-top: 1px solid grey;
+  display: flex;
+  height: 4%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  padding-left: 0px;
+  border-top: 1px solid grey;
 }
-.work-foot-in{
-color: grey;
-    font-family: 'Poppins';
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 13px;
+
+.work-foot-in {
+  color: grey;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 13px;
 }
 
 
@@ -138,13 +145,13 @@ color: grey;
   height: 100vh;
   background: black;
   color: white;
-  display: flex;
+  display: none;
+  /* <-- hidden by default */
   align-items: center;
   justify-content: center;
   z-index: 9999;
   font-size: 2rem;
   font-family: 'Poppins', sans-serif;
-  animation: slideIn 1s ease-out forwards;
 }
 
 /* Slide in from bottom */
@@ -152,6 +159,7 @@ color: grey;
   0% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -162,7 +170,20 @@ color: grey;
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-100%);
+  }
+}
+
+/* .................................................. */
+/* Blinking effect for colon */
+.blink {
+  animation: blink 1s steps(1, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
   }
 }

@@ -50,6 +50,7 @@ body {
   padding: 0px;
   margin-top: -60px;
 }
+
 /* .content-reveal{
   display: flex;
   flex-direction: column;
@@ -109,11 +110,14 @@ body {
 
 
   overflow-y: scroll;
-  scroll-behavior: smooth;   /* native smoothness */
-  scrollbar-width: none;     /* Firefox */
-  -ms-overflow-style: none;  /* IE/Edge */
-  -webkit-overflow-scrolling: touch; 
-    scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  /* native smoothness */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y mandatory;
 
 
 }
@@ -197,79 +201,116 @@ body {
   height: 100vh;
   background: black;
   color: white;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   font-size: 2rem;
   font-family: 'Poppins', sans-serif;
-  animation: slideIn 1s ease-out forwards;
 }
-
-/* Slide in from bottom */
 @keyframes slideIn {
   0% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(0);
   }
 }
 
-/* Slide out to top */
 @keyframes slideOut {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-100%);
   }
 }
-/* ................................................................................................ */
-.index-foot{
-position: relative;
-    width: 100%;
-    height: 16%;
-    top: 100px;
-    overflow: hidden;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 10px 0px 0px;
+.loaderr {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background:linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;
+  animation: l21 1s infinite linear;
 }
-.in-index-foot{
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: flex-start;
-gap: 10px;
+.loaderr::before {
+  content :"Loading...";
+  color: #0000;
+  padding: 0 5px;
+  background: inherit;
+  background-image: linear-gradient(90deg,#fff 50%,#000 0);
+  -webkit-background-clip:text;
+          background-clip:text;
+}
+
+@keyframes l21{
+  100%{background-position: left}
+}
+/* Slide animations */
+
+/* ................................................................................................ */
+.index-foot {
+  position: relative;
+  width: 100%;
+  height: 16%;
+  top: 100px;
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px 0px;
+}
+
+.in-index-foot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px;
 
 }
-.index-foot-h4{
-font-family: 'poppins';
-    color: gray;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: -8px;
-    padding: 0px;
+
+.index-foot-h4 {
+  font-family: 'poppins';
+  color: gray;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: -8px;
+  padding: 0px;
 }
-.index-foot-p{
-font-family: 'poppins';
-    font-size: 18px;
+
+.index-foot-p {
+  font-family: 'poppins';
+  font-size: 18px;
 }
+
 /* ................................................................................... */
- .circle {
+.circle {
   position: relative;
   z-index: 9999;
-      width: 20px;
-      height: 20px;
-      background-color: transparent;
-      border-radius: 50%;
-      position: fixed;
-      border: 1px solid white;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-    }
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: fixed;
+  border: 1px solid white;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+/* .......................................................... */
+/* Blinking effect for colon */
+.blink {
+  animation: blink 1s steps(1, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
+}

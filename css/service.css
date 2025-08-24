@@ -5,9 +5,9 @@ body {
     /* Prevent vertical scroll */
 
 }
-.animate{
+
+.animate {
     position: relative;
-    z-index: 9999;
 }
 
 .navbar-service {
@@ -239,6 +239,7 @@ ul {
     /* align-items: center; */
     border-bottom: 1px solid gray;
 }
+
 .mid-center {
     padding-left: 100px;
     width: 33%;
@@ -260,19 +261,22 @@ ul {
     margin-left: 2px;
     color: gray;
 }
-.mid-p{
-font-family: 'poppins';
-line-height: 20px;
+
+.mid-p {
+    font-family: 'poppins';
+    line-height: 20px;
 }
-.mid-right{
+
+.mid-right {
     width: 25%;
     height: 80%;
     background-color: #c1c1c1;
     margin-top: 30px;
     margin-right: 12px;
-    
+
 }
-.mid-image{
+
+.mid-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -315,7 +319,7 @@ line-height: 20px;
     font-family: 'Poppins';
     font-size: 13px;
     margin-top: 60px;
-   
+
     color: gray;
 }
 
@@ -344,83 +348,76 @@ line-height: 20px;
     font-family: 'Poppins';
     font-size: 17px;
 }
+
 /* ................................................................ */
 
-.studio-foot{
+.studio-foot {
     margin: 20px 0px 0px 0px;
 
- width: 100%;
- height: 200px;
- display: flex;
- justify-content: center;
-align-items: center;}
-.foot{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot {
     text-align: center;
     width: 100%;
     font-size: 250px;
-   
+
     font-family: 'Poppins';
 }
 
 
 /* ..................................................................................................................... */
-/* .hidden {
-  position: absolute;
-  top: 100vh;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #3498db;
-  z-index: 10;
-  transition: top 0.3s ease-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Poppins';
-  font-size: 40px;
-  color: white;
-}
-.animate {
-  position: relative;
-  z-index: 1;
-  min-height: 300vh;
-} */
-
-
-/* Loader base styles */
 #loader {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
-  animation: slideIn 1s ease-out forwards;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    animation: slideIn 1s ease-out forwards;
 }
 
 /* Slide in from bottom */
 @keyframes slideIn {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Slide out to top */
 @keyframes slideOut {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* ............................................................................................................. */
+/* Blinking effect for colon */
+.blink {
+    animation: blink 1s steps(1, start) infinite;
+}
+
+@keyframes blink {
+    50% {
+        visibility: hidden;
+    }
 }

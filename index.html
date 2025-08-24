@@ -18,7 +18,7 @@
 <body>
   <div class="circle"></div>
   <div id="loader">
-    Loading...
+    <div class="loaderr"></div>
   </div>
 
 
@@ -38,7 +38,7 @@
         </video>
       </div>
 
-      <div class="final-box" >
+      <div class="final-box">
         <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
         <h1 class="image-heading">BIRDIE®</h1>
         <p class="image-para">A Fresh Air Monitor</p>
@@ -48,7 +48,7 @@
           Your browser does not support the video tag.
         </video>
       </div>
-      <div class="index-foot" >
+      <div class="index-foot">
         <div class="in-index-foot">
           <h4 class="index-foot-h4">BUSINESS INQUIRIES</h4>
           <p class="index-foot-p">newbize@baseborn.studi0</p>
@@ -67,11 +67,12 @@
     <header>
       <nav class="navbar">
         <div class="nav-left">
-          <a href="work.html" class="nav-link">Work®</a>
-          <a href="service.html">Studio</a>
-          <a href="contact.html">Contact</a>
+          <a href="work.html" class="nav-link page-transition">Work®</a>
+          <a href="service.html" class="page-transition">Our Story</a>
+          <a href="contact.html" class="page-transition">Contact</a>
+
         </div>
-        <span class="nav-right" id="cph-time">CPH --:--</span>
+        <span class="nav-right" id="cph-time">CPH --<span class="blink">:</span>--</span>
       </nav>
     </header>
 
@@ -106,7 +107,7 @@
 
   <!-- JavaScript for CPH Time -->
   <script>
-     const circle = document.querySelector('.circle');
+    const circle = document.querySelector('.circle');
 
     let mouseX = 0;
     let mouseY = 0;
@@ -134,23 +135,26 @@
     animate();
     // .........................................................................................................
     function updateCPHTime() {
-      const options = {
-        timeZone: 'Europe/Copenhagen',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      };
+  const options = {
+    timeZone: 'Europe/Copenhagen',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  };
 
-      const now = new Date();
-      const formatter = new Intl.DateTimeFormat([], options);
-      const timeString = formatter.format(now);
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat([], options);
+  const timeString = formatter.format(now); // example: "15:42"
 
-      document.getElementById('cph-time').textContent = `CPH ${timeString}`;
-    }
+  const [hours, minutes] = timeString.split(":");
 
-    updateCPHTime(); // Initial load
-    setInterval(updateCPHTime, 60000); // Update every minute
+  // put blinking colon between hours and minutes
+  document.getElementById('cph-time').innerHTML = `CPH ${hours}<span class="blink">:</span>${minutes}`;
+}
 
+updateCPHTime(); // Initial load
+setInterval(updateCPHTime, 60000); // Update every minute
+// ..........................................................................................................
     document.querySelectorAll('.final-box').forEach(box => {
       const video = box.querySelector('.hover-video');
 
@@ -169,39 +173,34 @@
     });
 
     // .......................................................................................................
-    setTimeout(() => {
-      const mainContent = document.getElementById("main-content");
-      const loader = document.getElementById("loader");
+    const loader = document.getElementById("loader");
+    const mainContent = document.getElementById("main-content");
 
-      // Slide loader out
-      loader.style.animation = "slideOut 0.5s ease-in forwards";
+    // Show content immediately on load (no loader effect)
+    window.addEventListener("load", () => {
+      loader.style.display = "none";
+      mainContent.style.opacity = "1";
+    });
 
-      // After slide-out animation ends, remove loader and fade in content
-      loader.addEventListener("animationend", () => {
-        loader.remove();
-        mainContent.style.opacity = "1";
+    // Navigation animation
+    document.querySelectorAll(".page-transition").forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetUrl = this.getAttribute("href");
+
+        loader.style.display = "flex";
+        loader.style.animation = "slideIn 1s ease-out forwards";
+
+        loader.addEventListener("animationend", () => {
+          window.location.href = targetUrl;
+        }, { once: true });
       });
-    }, 3000);
+    });
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   </script>
 </body>
 
