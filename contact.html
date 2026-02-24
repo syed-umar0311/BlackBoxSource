@@ -33,17 +33,28 @@
                     <a href="service.html" class="page-transition">Our Story</a>
                     <a href="#" style="pointer-events: none; color: gray; text-decoration: none;">Contact</a>
                 </div>
-                <span class="nav-right" id="cph-time">CPH --<span class="blink">:</span>--</span>
+                <span class="nav-right" id="cph-time">PKT --<span class="blink">:</span>--</span>
             </nav>
         </header>
         <!-- ....................................................................................................................... -->
 
-        <div class="marquee-container">
-            <div class="marquee-track">
-                <div class="marquee-text">SAY SALUT | SAY HELLO | SAY HALO | SAY SALUT | SAY HELLO | SAY HALO </div>
-                <div class="marquee-text">SAY SALUT | SAY HELLO | SAY HALO | SAY SALUT | SAY HELLO | SAY HALO </div>
-            </div>
-        </div>
+      <div class="marquee-container">
+  <div class="marquee-track">
+    <div class="marquee-text">
+      Say Hello <span class="separator">|</span> Say Hola <span class="separator">|</span> Say Hej <span class="separator">|</span> 
+      Say Olá <span class="separator">|</span> Say Bonjour <span class="separator">|</span> Say Ciao <span class="separator">|</span> 
+      Say Hallo <span class="separator">|</span> Say Cześć <span class="separator">|</span> Say Salve <span class="separator">|</span> 
+      Say হ্যালো <span class="separator">|</span> Say 你好 <span class="separator">|</span> Say Merhaba <span class="separator">|</span>
+    </div>
+
+    <div class="marquee-text">
+      Say Hello <span class="separator">|</span> Say Hola <span class="separator">|</span> Say Hej <span class="separator">|</span> 
+      Say Olá <span class="separator">|</span> Say Bonjour <span class="separator">|</span> Say Ciao <span class="separator">|</span> 
+      Say Hallo <span class="separator">|</span> Say Cześć <span class="separator">|</span> Say Salve <span class="separator">|</span> 
+      Say হ্যালো <span class="separator">|</span> Say 你好 <span class="separator">|</span> Say Merhaba
+    </div>
+  </div>
+</div>
 
 
         <div class="con-foot">
@@ -56,15 +67,17 @@
             <div class="con-foot-inn">
                 <div class="con-inner">
                     <h5 class="con-inner-h1">BUSINESS INQUIRIES</h5>
-                    <p class="con-inner-p">ABCD@gmail.com</p>
+                    <p class="con-inner-p"><a class="con-inner-p"
+              href="mailto:sayhello@blackboxsourcing.com">sayhello@blackboxsourcing.com</a></p>
                 </div>
                 <div class="con-inner">
                     <h5 class="con-inner-h1">GENERAL</h5>
-                    <p class="con-inner-p">hello@gmail.com</p>
+                    <p class="con-inner-p"><a class="con-inner-p"
+              href="mailto:sayhello@blackboxsourcing.com">management@blackboxsourcing.com</a></p>
                 </div>
                 <div class="con-inner">
                     <h5 class="con-inner-h1">CALL US</h5>
-                    <p class="con-inner-p">(+45) 1234567</p>
+                    <p class="con-inner-p">- - -</p>
                 </div>
             </div>
         </div>
@@ -117,7 +130,7 @@
             const [hours, minutes] = timeString.split(":");
 
             // put blinking colon between hours and minutes
-            document.getElementById('cph-time').innerHTML = `CPH ${hours}<span class="blink">:</span>${minutes}`;
+            document.getElementById('cph-time').innerHTML = `PKT ${hours}<span class="blink">:</span>${minutes}`;
         }
 
         updateCPHTime(); // Initial load

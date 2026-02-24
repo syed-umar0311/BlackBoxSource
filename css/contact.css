@@ -69,13 +69,13 @@ body {
 
 .marquee-track {
     display: inline-flex;
-    animation: scroll-left 25s linear infinite;
+    animation: scroll-left 45s linear infinite;
 }
 
 .marquee-text {
-    font-weight: 900;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
-    font-size: 170px;
+    font-size: 150px;
     color: white;
     padding-right: 100px;
     /* gap between repeats */
@@ -90,6 +90,10 @@ body {
         transform: translateX(-50%);
     }
 }
+.separator {
+  font-weight: 200;  /* thinner than text */
+  opacity: 1;      /* optional: make it lighter */
+}
 
 /* ................................................................................................... */
 
@@ -100,6 +104,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 5px;
 
 }
 
@@ -141,7 +146,11 @@ body {
 
 .con-inner-p {
     font-family: 'poppins';
-    font-size: 18px;
+    font-size: 15px;
+     color: inherit;        /* Use same color as parent text */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; 
+  font-weight: 500;
 }
 
 /* Loader base styles */

@@ -11,6 +11,7 @@ body {
 }
 
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,7 +46,7 @@ body {
 
 
 }
-
+/* ................................................................................................................ */
 .title-section {
   padding: 0px;
   margin-top: -60px;
@@ -56,44 +57,45 @@ body {
   flex-direction: column;
   justify-content: space-between;
 } */
-.title-section h1 {
+.title-section h1 span {
+   opacity: 0;
+  transform: translateY(-40px);
+  display: inline-block;
+  animation: fadeUp 0.5s forwards;
   font-weight: 900;
-  letter-spacing: -2px;
-  font-size: 114px;
+  letter-spacing: 25px;
+    font-size: 125px;
   padding: 20PX 0PX 0PX 5PX;
 
 }
-
-.definition {
-  margin-top: -12px;
-  color: #bbb;
-  padding-left: 12px;
-  font-size: 12px;
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.definition .italic {
-  font-style: italic;
-}
 
-.definition .small {
-  font-size: 0.7rem;
-  color: #999;
-}
-
-/* ............................................................................................................. */
 
 .description {
   padding: 10px;
-  font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.2;
   color: #f2f2f2;
   position: absolute;
-  bottom: 0px;
-  font-family: 'poppins';
-  font-size: 20px;
-  /* margin-top: 350px; */
+  bottom: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  width: 45%;
 
-
+  text-align: justify;      /* makes equal line widths */
+  text-justify: inter-word; /* better spacing */
+}
+.inline-logo{
+  width:25px;        /* change size here */
+  height:25px;
+  vertical-align:middle;
+  margin-right:4px;
+  border-radius: 10%;
 }
 
 /* .................................. */
@@ -138,29 +140,9 @@ body {
   z-index: 1000;
 }
 
-.hover-video {
-  position: absolute;
-  top: 43%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  height: 57%;
-  object-fit: cover;
-  object-position: center;
 
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
-  z-index: 1000;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-}
 
-.final-box:hover .hover-video {
-  display: block;
-
-}
 
 
 .fix-image {
@@ -185,10 +167,6 @@ body {
   font-family: 'Poppins';
 }
 
-.scroll-video {
-  object-fit: cover;
-  background-size: cover;
-}
 
 /* ........................................................ */
 
@@ -291,19 +269,23 @@ body {
 
 .index-foot-p {
   font-family: 'poppins';
-  font-size: 18px;
+  font-size: 15px;
+  color: inherit;        /* Use same color as parent text */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+  font-weight: 500;
 }
 
 /* ................................................................................... */
 .circle {
   position: relative;
   z-index: 9999;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-color: transparent;
-  border-radius: 50%;
+  border-radius: 15%;
   position: fixed;
-  border: 1px solid white;
+  border: 1.5px solid white;
   top: 0;
   left: 0;
   pointer-events: none;
@@ -320,4 +302,18 @@ body {
   50% {
     visibility: hidden;
   }
+}
+/* ................................................................................... */
+.box{
+  position: absolute;
+    top: 4px;
+    opacity: 0;
+    transform: translateY(-40px);
+    display: inline-block;
+    animation: fadeUp 0.5s forwards;
+    font-weight: 900;
+    letter-spacing: 32px;
+    font-size: 65px;
+    padding: 20PX 0PX 0PX 5PX;
+    font-family: 'Poppins';
 }

@@ -78,9 +78,9 @@ body {
 }
 
 .work-content {
+  position: relative;
   padding-right: 15px;
   border-right: 1px solid grey;
-  ;
   min-width: 40%;
   height: 100%;
   display: flex;
@@ -89,13 +89,43 @@ body {
   object-fit: contain;
   background-size: contain;
   margin-right: 10px;
-  /* Optional spacing between items */
+  overflow: hidden; /* keeps effects inside */
 }
 
 .work-image {
   height: 90%;
   width: 100%;
   object-fit: cover;
+  filter: blur(10px);       /* ✅ blur by default */
+  transition: filter 0.5s ease;
+}
+
+.work-overlay {
+  position: absolute;
+  top: 45%;             
+  left: 50%;            
+  transform: translate(-50%, -50%) rotate(-40deg); /* ✅ tilted */
+  z-index: 2;           
+  font-family: 'Poppins';
+  font-size: 65px;
+  font-weight: 600;
+  color: white;         
+  margin: 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  opacity: 1;           /* ✅ visible by default */
+  transition: opacity 0.5s ease;
+  border: 3px solid white;   /* white border around text */
+  padding: 8px 15px;         /* space inside border */
+  border-radius: 8px;   
+}
+
+/* ✅ Hover effect */
+.work-content:hover .work-image {
+  filter: blur(0);  /* remove blur */
+}
+
+.work-content:hover .work-overlay {
+  opacity: 0;       /* fade out text */
 }
 
 .work-head {

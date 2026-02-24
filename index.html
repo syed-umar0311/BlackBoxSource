@@ -27,40 +27,32 @@
   <div id="main-content" style="opacity: 0; transition: opacity 2s ease;">
 
     <div class="scroll-image">
+      <div class="box">
+        <h1 style="margin-left: -11px;">BOX</h1>
+      </div>
       <div class="final-box" style="top:170px;">
         <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
-        <h1 class="image-heading">BIRDIE®</h1>
-        <p class="image-para">A Fresh Air Monitor</p>
+        <h1 class="image-heading"></h1>
+        <p class="image-para"></p>
         <hr>
-
-        <video class="hover-video" muted>
-          <source src="./images//vi1.mp4" type="video/mp4" class="scroll-video" />
-          Your browser does not support the video tag.
-        </video>
       </div>
 
-      <div class="final-box">
-        <img src="./images/pic1.png" alt="BlackBox Logo" class="fix-image" />
-        <h1 class="image-heading">BIRDIE®</h1>
-        <p class="image-para">A Fresh Air Monitor</p>
-        <hr>
-        <video class="hover-video" muted>
-          <source src="./videos/sample.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+
       <div class="index-foot">
         <div class="in-index-foot">
           <h4 class="index-foot-h4">BUSINESS INQUIRIES</h4>
-          <p class="index-foot-p">newbize@baseborn.studi0</p>
+          <p class="index-foot-p"> <a class="index-foot-p"
+              href="mailto:sayhello@blackboxsourcing.com">sayhello@blackboxsourcing.com</a>
+          </p>
         </div>
         <div class="in-index-foot">
           <h4 class="index-foot-h4">GEBERAL</h4>
-          <p class="index-foot-p">hello@baseborn.studio</p>
+          <p class="index-foot-p"><a class="index-foot-p"
+              href="mailto:sayhello@blackboxsourcing.com">management@blackboxsourcing.com</a></p>
         </div>
         <div class="in-index-foot">
           <h4 class="index-foot-h4">CALL US</h4>
-          <p class="index-foot-p">+92 33333333</p>
+          <p class="index-foot-p">- - - </p>
         </div>
       </div>
     </div>
@@ -73,24 +65,25 @@
           <a href="contact.html" class="page-transition">Contact</a>
 
         </div>
-        <span class="nav-right" id="cph-time">CPH --<span class="blink">:</span>--</span>
+        <span class="nav-right" id="cph-time">PKT --<span class="blink">:</span>--</span>
       </nav>
     </header>
 
     <main>
       <div class="title-section">
-        <h1>BLACKBOXSOURCING</h1>
-        <p class="definition">
-          <span class="italic">/ˈBEɪSBɔːN/</span> <span class="italic">ADJECTIVE</span><br />
-          <span class="small">OF HUMBLE BIRTH OR ORIGIN</span>
-        </p>
+        <h1>BLACK </h1>
       </div>
 
       <div class="description">
         <p>
-          An Independent Branding & Digital Design Studio<br />
-          based in Copenhagen. We combine Identity, Digital<br />
-          Design & Development – Specializing in Webflow.
+          <img src="./images/TabLogo.jpg" class="inline-logo">delivering end-to-end supply chain solutions for global fashion brands.
+          We specialize in denim, knits, and workwear, managing everything from
+          fabric development and sampling to bulk production, quality control,
+          and on-time delivery. With a strong network of vetted mills and
+          manufacturers, we ensure transparency, efficiency, and consistent
+          product excellence.
+          <br><br>
+          <b> <i>Turning concepts into commercially viable collections with precision and reliability.</i></b>
         </p>
       </div>
     </main>
@@ -150,7 +143,7 @@
       const [hours, minutes] = timeString.split(":");
 
       // put blinking colon between hours and minutes
-      document.getElementById('cph-time').innerHTML = `CPH ${hours}<span class="blink">:</span>${minutes}`;
+      document.getElementById('cph-time').innerHTML = `PKT ${hours}<span class="blink">:</span>${minutes}`;
     }
 
     updateCPHTime(); // Initial load
@@ -210,6 +203,19 @@
 
 
 
+
+
+    // ....................................................................................................................
+    const h1 = document.querySelector(".title-section h1");
+    const text = h1.textContent;
+    h1.textContent = ""; // clear original text
+
+    [...text].forEach((letter, i) => {
+      const span = document.createElement("span");
+      span.textContent = letter;
+      span.style.animationDelay = `${i * 0.1}s`; // delay per letter
+      h1.appendChild(span);
+    });
 
 
 
