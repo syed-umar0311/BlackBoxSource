@@ -133,230 +133,91 @@ body::-webkit-scrollbar {
 }
 
 .born-h5 {
+    margin-right: 18px;
+
     font-family: 'Poppins';
-    font-size: 11px;
+    font-size: 14px;
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
     margin-bottom: 0px;
     line-height: 24px;
     font-weight: 500;
-    margin-left: 50px;
+    margin-left: 20px;
     color: #c1c1c1;
-
 }
 
-
-/* .................................................................................................................. */
-.born-middle {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid gray;
-}
-
-.born-info {
-    width: 35%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.born-info-p {
-    font-family: 'poppins';
-}
 
 /* ........................................................................................... */
-.born-sec {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    border-bottom: 1px solid gray;
+/* ===== FLOW TEXT SECTION ===== */
+
+.bbx-flow-wrap {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 0 30px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.sec-head {
-    font-family: 'Poppins';
-    margin-top: 50px;
+.bbx-flow-block {
+    margin-bottom: 90px;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: bbxFlowFade 1s forwards;
 }
 
-.sec-h1 {
-    font-family: 'Poppins';
-
+.bbx-flow-block:nth-child(2) {
+    animation-delay: .25s;
 }
 
-.born-center {
-    display: flex;
-    flex-direction: column;
+.bbx-flow-block:nth-child(3) {
+    animation-delay: .45s;
 }
 
-.born-in {
-    display: flex;
+.bbx-flow-title {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
-.in-h1 {
-    font-family: 'Poppins';
-    font-size: 13px;
-    margin-top: 60px;
-    margin-right: 40px;
-    margin-left: 38px;
-    color: gray;
+.bbx-flow-sub {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    opacity: .8;
 }
 
-ul {
-    list-style: none;
-    margin-top: 53px;
-    line-height: 23px;
-    font-family: 'Poppins';
-    font-size: 16px;
-    margin-left: 29px;
-}
-
-.in-p {
-    margin-left: 19px;
-    font-weight: 500;
-    line-height: 26px;
-}
-
-.born-right {
-    margin-top: 50px;
-    width: 30%;
-    padding-right: 25px;
-}
-
-.born-in-right {
-    font-family: 'poppins';
+.bbx-flow-text {
     font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    color: #d0d0d0;
 }
 
-/* ............................................................................................................... */
-.mid-sec {
-    padding-top: 60px;
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    border-bottom: 1px solid gray;
+@keyframes bbxFlowFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.mid-center {
-    padding-left: 100px;
-    width: 33%;
-    display: flex;
-    flex-direction: column;
-}
+/* MOBILE */
 
-.mid-in {
-    display: flex;
-    flex-direction: column;
-    margin-top: -20px;
-}
+@media(max-width:700px) {
 
-.mid-h1 {
-    font-family: 'Poppins';
-    font-size: 13px;
-    margin-top: 50px;
-    margin-right: 40px;
-    margin-left: 2px;
-    color: gray;
-}
+    .bbx-flow-title {
+        font-size: 30px;
+    }
 
-.mid-p {
-    font-family: 'poppins';
-    line-height: 20px;
-}
+    .bbx-flow-wrap {
+        margin: 80px auto;
+    }
 
-.mid-right {
-    width: 25%;
-    height: 80%;
-    background-color: #c1c1c1;
-    margin-top: 30px;
-    margin-right: 12px;
-
-}
-
-.mid-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-size: contain;
-}
-
-
-/* .................................................................................................. */
-
-.services-section {
-    width: 100%;
-    height: 660px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid gray;
-}
-
-.services-heading {
-    font-family: 'Poppins';
-    margin-top: 50px;
-}
-
-.services-title {
-    font-family: 'Poppins';
-}
-
-.services-columns {
-    margin-top: 16px;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-category {
-    display: flex;
-    align-items: center;
-}
-
-.category-title {
-    width: 28%;
-    font-family: 'Poppins';
-    font-size: 13px;
-    margin-top: 60px;
-
-    color: gray;
-}
-
-.services-list {
-    list-style: none;
-    margin-top: 40px;
-    width: 70%;
-    font-family: 'Poppins';
-    font-size: 16px;
-    margin-left: 18px;
-}
-
-.service-item {
-    margin-left: 19px;
-    font-weight: 500;
-    line-height: 26px;
-}
-
-.services-description {
-    margin-top: 50px;
-    width: 30%;
-    padding-right: 25px;
-}
-
-.description-text {
-    font-family: 'Poppins';
-    font-size: 17px;
 }
 
 /* ................................................................ */
 
-.studio-foot {
+/* .studio-foot {
     margin: 20px 0px 0px 0px;
 
     width: 100%;
@@ -372,8 +233,21 @@ ul {
     font-size: 250px;
 
     font-family: 'Poppins';
+} */
+
+.studio-foot {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 80px;
 }
 
+.studio-foot-img {
+    width: 88%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
 
 /* ..................................................................................................................... */
 #loader {
@@ -417,33 +291,39 @@ ul {
 }
 
 .loaderr {
-  width: 50px;
-  aspect-ratio: 1;
-  display: grid;
-}
-.loaderr::before,
-.loaderr::after {    
-  content:"";
-  grid-area: 1/1;
-  --c:no-repeat radial-gradient(farthest-side,#d4af37 92%,#0000); /* gold */
-  background: 
-    var(--c) 50%  0, 
-    var(--c) 50%  100%, 
-    var(--c) 100% 50%, 
-    var(--c) 0    50%;
-  background-size: 12px 12px;
-  animation: l12 1s infinite;
-}
-.loaderr::before {
-  margin: 4px;
-  filter: hue-rotate(45deg) brightness(1.1);
-  background-size: 8px 8px;
-  animation-timing-function: linear
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
 }
 
-@keyframes l12 { 
-  100%{transform: rotate(.5turn)}
+.loaderr::before,
+.loaderr::after {
+    content: "";
+    grid-area: 1/1;
+    --c: no-repeat radial-gradient(farthest-side, #d4af37 92%, #0000);
+    /* gold */
+    background:
+        var(--c) 50% 0,
+        var(--c) 50% 100%,
+        var(--c) 100% 50%,
+        var(--c) 0 50%;
+    background-size: 12px 12px;
+    animation: l12 1s infinite;
 }
+
+.loaderr::before {
+    margin: 4px;
+    filter: hue-rotate(45deg) brightness(1.1);
+    background-size: 8px 8px;
+    animation-timing-function: linear
+}
+
+@keyframes l12 {
+    100% {
+        transform: rotate(.5turn)
+    }
+}
+
 /* ............................................................................................................. */
 /* Blinking effect for colon */
 .blink {
