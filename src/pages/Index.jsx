@@ -1,10 +1,26 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import CPHTime from '../components/CPHTime'
 import PageLink from '../components/PageLink'
 import { waitForPageReady } from '../utils/pageReady'
 
+const gridImagePool = [
+  '/images/pic1.png',
+  '/images/pic2.jpg',
+  '/images/pic3.jpeg',
+  '/images/pic4.png',
+  '/images/pic5.jpg',
+]
+
+const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)]
+const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5)
+
 export default function Index() {
   const mainContentRef = useRef(null)
+  const [gridCells, setGridCells] = useState(() =>
+    shuffle(gridImagePool)
+      .slice(0, 4)
+      .map((src) => ({ src, version: 0 })),
+  )
 
   useEffect(() => {
     let isMounted = true
@@ -40,6 +56,45 @@ export default function Index() {
     })
   }, [])
 
+  useEffect(() => {
+    const timers = []
+
+    const scheduleSwap = (cellIndex) => {
+      const delay = 1500 + Math.floor(Math.random() * 3000)
+
+      const timer = setTimeout(() => {
+        setGridCells((prev) => {
+          const usedByOthers = new Set(
+            prev.filter((_, index) => index !== cellIndex).map((cell) => cell.src),
+          )
+          const currentSrc = prev[cellIndex].src
+          const candidates = gridImagePool.filter(
+            (src) => !usedByOthers.has(src) && src !== currentSrc,
+          )
+
+          if (candidates.length === 0) return prev
+
+          const nextSrc = pickRandom(candidates)
+
+          return prev.map((cell, index) =>
+            index === cellIndex ? { src: nextSrc, version: cell.version + 1 } : cell,
+          )
+        })
+        scheduleSwap(cellIndex)
+      }, delay)
+
+      timers.push(timer)
+    }
+
+    for (let i = 0; i < 4; i += 1) {
+      scheduleSwap(i)
+    }
+
+    return () => {
+      timers.forEach(clearTimeout)
+    }
+  }, [])
+
   return (
     <>
       <div
@@ -52,10 +107,24 @@ export default function Index() {
             <h1 style={{ marginLeft: '-11px' }}>BOX</h1>
           </div>
           <div className="final-box" style={{ top: '170px' }}>
-            <img src="/images/pic1.png" alt="BlackBox Logo" className="fix-image" />
+            <div className="final-grid">
+              {gridCells.map((cell, index) => (
+                <div className="final-grid-cell" key={index}>
+                  <img
+                    key={cell.version}
+                    src={cell.src}
+                    alt={`BlackBox visual ${index + 1}`}
+                    className="final-grid-image"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="final-grid-logo-wrap">
+              <img src="/images/gridlogo.jpg" alt="BlackBox mark" className="final-grid-logo" />
+            </div>
             <h1 className="image-heading"></h1>
             <p className="image-para"></p>
-            <hr />
+            {/* <hr /> */}
           </div>
 
           <div className="index-foot">

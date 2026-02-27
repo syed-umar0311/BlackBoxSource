@@ -54,10 +54,11 @@ export default function Contact() {
     <>
       <div
         id="main-content"
+        className="contact-page"
         ref={mainContentRef}
         style={{ opacity: 0, transition: 'opacity 1s ease' }}
       >
-        <header>
+        <header className="contact-header">
           <nav className="navbar-con">
             <h1 className="con-nav-head">
               <PageLink to="/" className="page-transition">
