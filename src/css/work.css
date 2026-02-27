@@ -1,0 +1,247 @@
+.navbar-work {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  font-weight: bold;
+  padding: 15px 5px 5px 5px;
+}
+
+.navbar-work a {
+  margin-right: 20px;
+  color: white;
+  text-decoration: none;
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: -8px;
+}
+
+.nav-left-work {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.nav-right-work {
+  display: flex;
+  justify-self: right;
+  font-family: 'poppins';
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.work-nav-head {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  margin-right: 0;
+}
+
+.work-scroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  position: absolute;
+  gap: 5px;
+  height: 85vh;
+  width: 100%;
+  background-color: transparent;
+  margin-top: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.work-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.work-content {
+  position: relative;
+  padding-right: 15px;
+  border-right: 1px solid grey;
+  min-width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  object-fit: contain;
+  background-size: contain;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.work-image {
+  height: 90%;
+  width: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  transition: filter 0.5s ease;
+}
+
+.work-overlay {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-40deg);
+  z-index: 2;
+  font-family: 'Poppins';
+  font-size: 65px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  border: 3px solid white;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+
+.work-content:hover .work-image {
+  filter: blur(0);
+}
+
+.work-content:hover .work-overlay {
+  opacity: 0;
+}
+
+.work-head {
+  font-family: 'Poppins';
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.work-p {
+  font-size: 14px;
+  color: gray;
+  margin: 5px 0 0 2px;
+}
+
+.work-foot {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  height: 4%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  padding-left: 0;
+  border-top: 1px solid grey;
+}
+
+.work-foot-in {
+  color: grey;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 13px;
+}
+
+@media (max-width: 1024px) {
+  .work-content {
+    min-width: 55%;
+  }
+
+  .work-overlay {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-work {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 10px;
+  }
+
+  .navbar-work a {
+    margin-right: 12px;
+    font-size: 16px;
+  }
+
+  .nav-left-work {
+    width: 100%;
+    margin-right: 0;
+    justify-content: space-between;
+  }
+
+  .nav-right-work,
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+    font-size: 16px;
+  }
+
+  .work-scroll {
+    position: relative;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    max-height: none;
+    padding: 10px;
+    gap: 16px;
+  }
+
+  .work-content {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid grey;
+    padding-right: 0;
+    padding-bottom: 16px;
+  }
+
+  .work-image {
+    height: auto;
+    max-height: 55vh;
+  }
+
+  .work-overlay {
+    font-size: 34px;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    border-width: 2px;
+  }
+
+  .work-head {
+    font-size: 28px;
+    margin-top: 8px;
+  }
+
+  .work-foot {
+    position: relative;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-work a {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  .work-overlay {
+    font-size: 24px;
+    padding: 5px 10px;
+  }
+
+  .work-head {
+    font-size: 22px;
+  }
+
+  .work-foot-in {
+    font-size: 11px;
+  }
+}
